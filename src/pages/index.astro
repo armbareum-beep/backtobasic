@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionCard from '../components/SectionCard.astro';
+
+const sections = [
+  {
+    href: '/about/professor',
+    icon: '🎓',
+    subtitle: 'Laboratory Introduction',
+    title: 'About the Lab',
+    description:
+      'Meet Prof. [Name], PhD (SNU), with 13 years of internal medicine clinical experience. Discover our mission, values, and the people behind the research.',
+    tags: ['KNU', 'SNU PhD', '13yr Clinical'],
+  },
+  {
+    href: '/research',
+    icon: '🔬',
+    subtitle: 'Research & Projects',
+    title: 'Research Areas',
+    description:
+      'From gut microbiome sequencing (NGS) to metabolomics (LC-MS/HPLC) and clinical trials for CKD, oncology, and allergy — evidence-based, precision nutrition.',
+    tags: ['NGS', 'Metabolomics', 'Clinical Trials'],
+  },
+  {
+    href: '/careers',
+    icon: '🌱',
+    subtitle: 'Careers & Alumni',
+    title: 'Career Pathways',
+    description:
+      'Three tracks: clinical specialists at VMTH, industry leaders at global pet food companies, and research scientists at national institutes.',
+    tags: ['Clinical', 'Industry R&D', 'Research'],
+  },
+  {
+    href: '/collaboration',
+    icon: '🌐',
+    subtitle: 'Global Collaboration',
+    title: 'International Network',
+    description:
+      'Collaborations with DACVN-certified specialists worldwide. Active presence at ACVIM, ESVCN, and WSAVA Nutrition committee meetings.',
+    tags: ['ACVIM', 'DACVN', 'ESVCN'],
+  },
+];
+---
+
+<BaseLayout title="Home">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-navy via-navy-800 to-navy-900 text-white">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+    </div>
+
+    <div class="container-wide relative py-24 sm:py-36">
+      <div class="max-w-3xl">
+        <!-- Label -->
+        <div class="inline-flex items-center gap-2 bg-forest/20 border border-forest/30 text-forest-300 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
+          <span class="w-1.5 h-1.5 bg-forest-400 rounded-full animate-pulse"></span>
+          Back to the Basic — KNU Vet Clinical Nutrition Lab
+        </div>
+
+        <!-- Main slogan -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+          Advancing Animal Wellness
+          <span class="block text-forest-300">through Evidence-Based</span>
+          <span class="block">Clinical Nutrition</span>
+        </h1>
+
+        <!-- Korean subtitle -->
+        <p class="text-navy-200 text-lg sm:text-xl mb-8 font-light">
+          근거 중심의 영양학으로 반려동물의 삶의 질을 혁신하다
+        </p>
+
+        <!-- Description -->
+        <p class="text-navy-200 text-base leading-relaxed max-w-xl mb-10">
+          We combine precision diagnostics — NGS microbiome sequencing, metabolomics, and rigorous clinical trials —
+          with a foundational commitment to accurate body and muscle condition assessment (BCS/MCS).
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4">
+          <a href="/about/professor" class="btn-primary bg-forest hover:bg-forest-600">
+            Meet the Lab
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="/research" class="inline-flex items-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors duration-200">
+            Our Research
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-50 to-transparent"></div>
+  </section>
+
+  <!-- Stats bar -->
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="container-wide py-6">
+      <dl class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        {[
+          { value: '13+', label: 'Years Clinical Experience' },
+          { value: 'NGS', label: 'Microbiome Analysis' },
+          { value: 'LC-MS', label: 'Metabolomics Platform' },
+          { value: 'ACVIM', label: 'Global Network' },
+        ].map(({ value, label }) => (
+          <div>
+            <dt class="text-2xl font-bold text-navy">{value}</dt>
+            <dd class="text-xs text-slate-500 mt-1 font-medium uppercase tracking-wide">{label}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- Section cards -->
+  <section class="section-padding bg-slate-50">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-navy mb-3">Explore the Lab</h2>
+        <p class="text-slate-500 max-w-xl mx-auto">
+          From cutting-edge research to career pathways and global partnerships — discover what makes Back to Basic a leading veterinary nutrition laboratory.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {sections.map((s) => <SectionCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy teaser -->
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="tag mb-4">Our Philosophy</div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6">
+          "Back to the Basic"
+        </h2>
+        <p class="text-slate-600 text-lg leading-relaxed mb-4">
+          Before prescribing any diet or supplement, we first ask a fundamental question:
+          <em class="text-navy font-medium"> what does this individual animal actually need?</em>
+        </p>
+        <p class="text-slate-500 leading-relaxed mb-8">
+          Body Condition Score (BCS) and Muscle Condition Score (MCS) are the cornerstones of our clinical assessment.
+          By returning to these basics — and layering precision tools on top — we create nutrition plans grounded in reality, not marketing.
+        </p>
+        <a href="/about/philosophy" class="btn-outline">
+          Read the Philosophy
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

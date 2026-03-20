@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Metabolomics" description="LC-MS and HPLC metabolomic profiling for disease-specific nutritional biomarkers — Back to Basic Lab">
+  <section class="bg-gradient-to-r from-navy to-navy-800 text-white py-16">
+    <div class="container-wide">
+      <a href="/research" class="text-navy-300 text-sm hover:text-white mb-4 inline-flex items-center gap-1">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        Research
+      </a>
+      <div class="tag mb-3" style="background:rgba(255,255,255,0.1);color:#a7c4e2;">LC-MS · HPLC</div>
+      <h1 class="text-4xl font-bold mb-2">Metabolomics</h1>
+      <p class="text-navy-200">Discovering nutritional biomarkers through metabolite profiling</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-wide max-w-4xl">
+      <div class="prose max-w-none mb-12">
+        <div class="tag mb-4">Overview</div>
+        <h2 class="text-2xl font-bold text-navy mb-4">Reading the Body's Chemical Language</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Metabolomics is the comprehensive study of small-molecule metabolites — amino acids, lipids, organic acids,
+          nucleotides — within a biological sample. These molecules are the downstream products of genomics,
+          transcriptomics, and proteomics, and they reflect actual physiological state more directly than any upstream
+          measurement.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          Using <strong class="text-navy">LC-MS (Liquid Chromatography–Mass Spectrometry)</strong> and
+          <strong class="text-navy">HPLC (High-Performance Liquid Chromatography)</strong>, we profile serum and
+          urine metabolomes in companion animals across a range of disease states, identifying biomarkers that
+          can guide nutritional intervention and monitor treatment response.
+        </p>
+      </div>
+
+      <!-- Platform cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+        {[
+          {
+            icon: '⚗️',
+            title: 'LC-MS/MS',
+            body: 'High-sensitivity detection of low-abundance metabolites in complex matrices. Used for targeted amino acid panels, lipidomics, and bile acid profiling.',
+          },
+          {
+            icon: '📊',
+            title: 'HPLC (UV/FLD)',
+            body: 'Quantitative analysis of water-soluble vitamins, organic acids, and urinary markers. High throughput for large-cohort clinical studies.',
+          },
+          {
+            icon: '🧮',
+            title: 'Multivariate Statistics',
+            body: 'PCA, PLS-DA, and OPLS-DA to distinguish disease from healthy metabolomic signatures and identify the most discriminant biomarker candidates.',
+          },
+          {
+            icon: '🗺️',
+            title: 'Pathway Mapping',
+            body: 'Integrating metabolite panels with KEGG and MetaboAnalyst pathway databases to understand which metabolic routes are disrupted in disease.',
+          },
+        ].map(({ icon, title, body }) => (
+          <div class="bg-white border border-slate-200 rounded-xl p-5 hover:border-navy transition-colors">
+            <div class="text-3xl mb-3">{icon}</div>
+            <h3 class="font-bold text-navy mb-2">{title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">{body}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Disease focus -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-navy mb-6">Disease-Specific Research Focus</h2>
+        <div class="space-y-4">
+          {[
+            {
+              disease: 'Chronic Kidney Disease (CKD)',
+              markers: 'Uremic toxins (indoxyl sulfate, p-cresol sulfate), symmetric dimethylarginine (SDMA), creatinine-to-BUN ratio dynamics',
+              goal: 'Early detection biomarkers; monitoring phosphorus restriction efficacy',
+            },
+            {
+              disease: 'Hepatic Disease',
+              markers: 'Bile acids (primary/secondary), branched-chain amino acids (BCAA), ammonia metabolites, medium-chain acylcarnitines',
+              goal: 'Stratifying hepatic dysfunction severity and guiding protein source selection',
+            },
+            {
+              disease: 'Metabolic Syndrome & Obesity',
+              markers: 'Insulin resistance surrogates, adipokines, short-chain fatty acid precursors, triglyceride/HDL ratios',
+              goal: 'Identifying metabolically obese normal-weight (MONW) patients and customizing caloric restriction',
+            },
+          ].map(({ disease, markers, goal }) => (
+            <div class="p-5 bg-slate-50 rounded-xl border border-slate-200">
+              <h3 class="font-bold text-navy mb-2">{disease}</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                <div>
+                  <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-1">Key Markers</p>
+                  <p class="text-slate-600">{markers}</p>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-1">Research Goal</p>
+                  <p class="text-slate-600">{goal}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="/research/precision-nutrition" class="btn-outline">← Precision Nutrition</a>
+        <a href="/research/clinical-trials" class="btn-outline">Next: Clinical Trials →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

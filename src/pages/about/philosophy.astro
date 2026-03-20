@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const principles = [
+  {
+    icon: '📏',
+    title: 'Measure First, Prescribe Second',
+    body: 'Every nutritional intervention begins with BCS (Body Condition Score) and MCS (Muscle Condition Score). These validated, low-tech tools are the most honest reflection of an animal\'s nutritional status — no lab test required.',
+  },
+  {
+    icon: '🔍',
+    title: 'Evidence Over Anecdote',
+    body: 'Commercial claims are abundant; peer-reviewed evidence is not. We design every feeding recommendation from primary literature and our own controlled data, not brand messaging.',
+  },
+  {
+    icon: '🎯',
+    title: 'Individual Before Population',
+    body: 'Population-level guidelines are a starting point, not an endpoint. Using microbiome profiling and metabolomics, we tailor plans to the individual patient\'s physiology.',
+  },
+  {
+    icon: '🔄',
+    title: 'Iterate, Monitor, Adapt',
+    body: 'A diet plan is a hypothesis. We track BCS, MCS, biomarkers, and owner-reported outcomes, continuously refining based on real-world response rather than fixed protocols.',
+  },
+];
+---
+
+<BaseLayout
+  title="Philosophy"
+  description="Back to the Basic — the philosophy of evidence-based veterinary clinical nutrition"
+>
+  <section class="bg-gradient-to-r from-navy to-navy-800 text-white py-16">
+    <div class="container-wide">
+      <div class="tag mb-3" style="background:rgba(255,255,255,0.1);color:#a7c4e2;">Laboratory Introduction</div>
+      <h1 class="text-4xl font-bold mb-2">Our Philosophy</h1>
+      <p class="text-navy-200">Back to the Basic — what it means and why it matters</p>
+    </div>
+  </section>
+
+  <!-- Hero quote -->
+  <section class="bg-white section-padding">
+    <div class="container-wide max-w-3xl mx-auto text-center">
+      <blockquote class="text-3xl sm:text-4xl font-bold text-navy leading-tight mb-6">
+        "Before the algorithm, before the sequencer — look at the patient."
+      </blockquote>
+      <p class="text-slate-500 text-lg">
+        In an era of precision diagnostics, it is easy to forget that the most powerful nutritional assessment tool
+        is an attentive clinician with a standardized scoring system. That is the essence of Back to the Basic.
+      </p>
+    </div>
+  </section>
+
+  <!-- BCS / MCS explainer -->
+  <section class="section-padding bg-slate-50">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="tag mb-4">Core Assessment Tools</div>
+          <h2 class="text-3xl font-bold text-navy mb-6">BCS & MCS: The Foundation</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            <strong class="text-navy">Body Condition Score (BCS)</strong> is a 5- or 9-point scale that quantifies
+            fat deposition relative to bony landmarks. A patient's BCS tells us immediately whether we are managing
+            obesity, ideal weight, or cachexia — each requiring a completely different nutritional strategy.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            <strong class="text-navy">Muscle Condition Score (MCS)</strong> — assessed by palpating the epaxial,
+            scapular, temporal, and pelvic musculature — captures lean body mass independent of body fat.
+            A patient can be overweight (high BCS) yet simultaneously sarcopenic (low MCS), a combination
+            that dramatically alters both caloric and protein targets.
+          </p>
+          <p class="text-slate-600 leading-relaxed">
+            Together, BCS and MCS are non-invasive, inexpensive, and reproducible. They are not replaced by
+            DEXA scanning or microbiome sequencing — they are complemented by them.
+          </p>
+        </div>
+
+        <!-- Visual BCS scale mockup -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6">
+          <h3 class="font-bold text-navy mb-4">BCS 9-Point Scale (overview)</h3>
+          <div class="space-y-2">
+            {[
+              { score: '1–2', label: 'Severely Underweight', color: 'bg-red-100 text-red-700 border-red-200' },
+              { score: '3', label: 'Underweight', color: 'bg-orange-100 text-orange-700 border-orange-200' },
+              { score: '4–5', label: 'Ideal', color: 'bg-forest-50 text-forest-700 border-forest-200' },
+              { score: '6–7', label: 'Overweight', color: 'bg-yellow-100 text-yellow-700 border-yellow-200' },
+              { score: '8–9', label: 'Obese', color: 'bg-red-100 text-red-700 border-red-200' },
+            ].map(({ score, label, color }) => (
+              <div class={`flex items-center justify-between px-4 py-2 rounded-lg border text-sm font-medium ${color}`}>
+                <span>Score {score}</span>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-xs text-slate-400 mt-4">
+            * MCS uses a 0–3 scale (0 = severe muscle loss, 3 = normal muscle mass) assessed by palpation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four principles -->
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <div class="tag mb-3">Guiding Principles</div>
+        <h2 class="text-3xl font-bold text-navy">How We Think About Nutrition</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {principles.map(({ icon, title, body }) => (
+          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+            <div class="text-3xl mb-3">{icon}</div>
+            <h3 class="font-bold text-navy text-lg mb-2">{title}</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">{body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-navy text-white">
+    <div class="container-wide text-center max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4">See the Philosophy in Practice</h2>
+      <p class="text-navy-200 mb-8">
+        Explore our research areas to see how these principles translate into NGS-powered microbiome studies,
+        metabolomic biomarker discovery, and controlled clinical trials.
+      </p>
+      <a href="/research" class="btn-primary bg-forest hover:bg-forest-600">
+        Explore Research
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const collaborators = [
+  {
+    name: 'DACVN Specialist A',
+    affiliation: 'University of California, Davis — VMTH',
+    focus: 'Feline CKD nutritional management & renal diet formulation',
+    credential: 'DACVN',
+  },
+  {
+    name: 'DACVN Specialist B',
+    affiliation: 'Colorado State University — College of Veterinary Medicine',
+    focus: 'Canine oncology nutrition & cachexia intervention',
+    credential: 'DACVN',
+  },
+  {
+    name: 'DECVCN Specialist',
+    affiliation: 'Royal Veterinary College, London',
+    focus: 'European small animal nutrition guidelines & microbiome research',
+    credential: 'DECVCN',
+  },
+];
+
+const conferences = [
+  {
+    name: 'ACVIM Forum',
+    full: 'American College of Veterinary Internal Medicine',
+    focus: 'Nutrition symposia, clinical nutrition abstract presentations',
+    icon: '🇺🇸',
+  },
+  {
+    name: 'ESVCN Congress',
+    full: 'European Society of Veterinary Clinical Nutrition',
+    focus: 'Metabolomics workshops, microbiome sessions, European guidelines',
+    icon: '🇪🇺',
+  },
+  {
+    name: 'WSAVA Nutrition Committee',
+    full: 'World Small Animal Veterinary Association',
+    focus: 'Global nutritional assessment guidelines (BCS/MCS standardization)',
+    icon: '🌐',
+  },
+  {
+    name: 'KSVS / KSAVM',
+    full: 'Korean Society of Veterinary Science / Internal Medicine',
+    focus: 'Domestic clinical nutrition guideline development, annual symposia',
+    icon: '🇰🇷',
+  },
+];
+---
+
+<BaseLayout title="Global Collaboration" description="International network — DACVN collaborators, ACVIM, ESVCN, WSAVA">
+  <section class="bg-gradient-to-r from-navy to-navy-800 text-white py-16">
+    <div class="container-wide">
+      <div class="tag mb-3" style="background:rgba(255,255,255,0.1);color:#a7c4e2;">Global Collaboration</div>
+      <h1 class="text-4xl font-bold mb-2">International Network</h1>
+      <p class="text-navy-200 max-w-xl">
+        Partnerships with board-certified nutritionists and institutions across the US, Europe, and beyond.
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="container-wide max-w-3xl text-center">
+      <p class="text-slate-600 text-lg leading-relaxed">
+        Veterinary clinical nutrition is a small, tightly connected global field. Our lab maintains active
+        collaborations with DACVN- and DECVCN-certified specialists, enabling joint research, co-authored publications,
+        and exchange of students for clinical and laboratory training.
+      </p>
+    </div>
+  </section>
+
+  <!-- Collaborators -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="mb-10">
+        <div class="tag mb-3">Research Collaborators</div>
+        <h2 class="text-3xl font-bold text-navy">Board-Certified Collaborating Specialists</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {collaborators.map(({ name, affiliation, focus, credential }) => (
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:border-navy hover:shadow-md transition-all">
+            <div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center mb-4">
+              <span class="text-2xl">👤</span>
+            </div>
+            <span class="tag mb-2">{credential}</span>
+            <h3 class="font-bold text-navy mb-1">{name}</h3>
+            <p class="text-xs text-slate-400 mb-3">{affiliation}</p>
+            <p class="text-sm text-slate-500 leading-relaxed">{focus}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Conferences -->
+      <div class="mb-10">
+        <div class="tag mb-3">Conference Presence</div>
+        <h2 class="text-3xl font-bold text-navy mb-6">Where We Present & Connect</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {conferences.map(({ name, full, focus, icon }) => (
+            <div class="flex gap-4 p-5 bg-slate-50 border border-slate-200 rounded-xl">
+              <span class="text-3xl flex-shrink-0">{icon}</span>
+              <div>
+                <h3 class="font-bold text-navy">{name}</h3>
+                <p class="text-xs text-slate-400 mb-2">{full}</p>
+                <p class="text-sm text-slate-500">{focus}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Photo gallery placeholder -->
+      <div>
+        <div class="tag mb-3">Gallery</div>
+        <h2 class="text-3xl font-bold text-navy mb-6">Lab in the World</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            'ACVIM Forum 2024',
+            'Lab Exchange Visit',
+            'Joint Research Meeting',
+            'ESVCN Congress',
+            'KNU VMTH Clinical Rounds',
+            'Collaboration Workshop',
+            'Conference Poster Session',
+            'International Lab Visit',
+          ].map((label) => (
+            <div class="aspect-square bg-slate-100 rounded-xl flex items-center justify-center border border-slate-200 p-3 text-center">
+              <div>
+                <div class="text-2xl mb-2">📸</div>
+                <p class="text-xs text-slate-400">{label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p class="text-xs text-slate-400 mt-4 text-center">Photo gallery — images to be added by lab.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaborate with us CTA -->
+  <section class="section-padding bg-navy text-white">
+    <div class="container-wide text-center max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4">Collaborate with Us</h2>
+      <p class="text-navy-200 mb-8">
+        We welcome proposals for joint research, student exchanges, and co-authorship opportunities.
+        If you are a board-certified nutritionist or researcher working in related areas, we'd love to connect.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="mailto:lab@knu.ac.kr" class="btn-primary bg-forest hover:bg-forest-600">
+          Propose a Collaboration
+        </a>
+        <a href="/research" class="inline-flex items-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors">
+          See Our Research
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

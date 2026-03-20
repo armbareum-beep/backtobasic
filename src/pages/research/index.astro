@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const areas = [
+  {
+    href: '/research/precision-nutrition',
+    icon: '🧬',
+    title: 'Precision Nutrition',
+    subtitle: 'NGS · Microbiome',
+    description: 'Next-Generation Sequencing and gut microbiome analysis to build individualized nutrition strategies based on each patient\'s unique microbial profile.',
+    tags: ['NGS', '16S rRNA', 'Metagenomics', 'Probiotics'],
+  },
+  {
+    href: '/research/metabolomics',
+    icon: '⚗️',
+    title: 'Metabolomics',
+    subtitle: 'LC-MS · HPLC',
+    description: 'Identifying disease-specific nutritional biomarkers from serum and urine metabolite profiles using liquid chromatography–mass spectrometry.',
+    tags: ['LC-MS', 'HPLC', 'Biomarkers', 'CKD', 'Hepatic'],
+  },
+  {
+    href: '/research/clinical-trials',
+    icon: '🏥',
+    title: 'Clinical Trials',
+    subtitle: 'VMTH · CKD · Oncology',
+    description: 'Evidence-based clinical nutrition trials at the University VMTH targeting chronic kidney disease, cancer cachexia, and food-responsive enteropathy.',
+    tags: ['CKD', 'Oncology', 'Allergy', 'VMTH'],
+  },
+];
+---
+
+<BaseLayout title="Research" description="Research areas — Precision Nutrition, Metabolomics, Clinical Trials">
+  <section class="bg-gradient-to-r from-navy to-navy-800 text-white py-16">
+    <div class="container-wide">
+      <div class="tag mb-3" style="background:rgba(255,255,255,0.1);color:#a7c4e2;">Research & Projects</div>
+      <h1 class="text-4xl font-bold mb-2">Research Areas</h1>
+      <p class="text-navy-200 max-w-xl">
+        From molecular profiling to bedside clinical trials — our research integrates precision tools with evidence-based nutrition practice.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {areas.map(({ href, icon, title, subtitle, description, tags }) => (
+          <a href={href} class="group block bg-white border border-slate-200 rounded-2xl p-8 hover:border-navy hover:shadow-lg transition-all duration-300">
+            <div class="text-4xl mb-4">{icon}</div>
+            <div class="tag mb-3">{subtitle}</div>
+            <h2 class="text-2xl font-bold text-navy group-hover:text-forest transition-colors mb-3">{title}</h2>
+            <p class="text-slate-500 text-sm leading-relaxed mb-5">{description}</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              {tags.map((tag) => (
+                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-md">{tag}</span>
+              ))}
+            </div>
+            <div class="flex items-center gap-1 text-forest text-sm font-medium">
+              <span>Read more</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

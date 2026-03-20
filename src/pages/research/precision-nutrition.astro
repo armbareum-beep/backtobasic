@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Precision Nutrition" description="NGS and microbiome-based individualized nutrition — Back to Basic Lab">
+  <section class="bg-gradient-to-r from-navy to-navy-800 text-white py-16">
+    <div class="container-wide">
+      <a href="/research" class="text-navy-300 text-sm hover:text-white mb-4 inline-flex items-center gap-1">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        Research
+      </a>
+      <div class="tag mb-3" style="background:rgba(255,255,255,0.1);color:#a7c4e2;">NGS · Microbiome</div>
+      <h1 class="text-4xl font-bold mb-2">Precision Nutrition</h1>
+      <p class="text-navy-200">Individualized dietary strategies powered by gut microbiome profiling</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-wide max-w-4xl">
+      <!-- Overview -->
+      <div class="prose max-w-none mb-12">
+        <div class="tag mb-4">Overview</div>
+        <h2 class="text-2xl font-bold text-navy mb-4">Why One Diet Doesn't Fit All</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Two patients with the same diagnosis can respond entirely differently to the same diet. A growing body of evidence
+          links this individual variation to differences in gut microbiome composition — the trillions of bacteria, fungi, and
+          archaea that colonize the gastrointestinal tract and profoundly influence nutrient metabolism, immune function,
+          and systemic inflammation.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          Our precision nutrition research uses <strong class="text-navy">Next-Generation Sequencing (NGS)</strong> —
+          specifically 16S rRNA amplicon sequencing and shotgun metagenomics — to characterize each patient's unique
+          microbiome. We then map this profile to dietary interventions, prebiotic/probiotic formulations, and
+          fermentation substrate selection to optimize gut health and clinical outcomes.
+        </p>
+      </div>
+
+      <!-- Methods -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+        {[
+          {
+            title: '16S rRNA Sequencing',
+            body: 'Community-level taxonomy profiling of the gut microbiome. Identifies bacterial genera and species shifts in response to dietary changes or disease states.',
+            badge: 'NGS Method',
+          },
+          {
+            title: 'Shotgun Metagenomics',
+            body: 'Whole-genome sequencing of microbial communities. Provides functional gene annotation — revealing what metabolic pathways are active, not just who is present.',
+            badge: 'NGS Method',
+          },
+          {
+            title: 'Microbial Dysbiosis Index (DI)',
+            body: 'A validated qPCR-based score to quantify gut dysbiosis in companion animals. Used to monitor response to dietary and probiotic interventions over time.',
+            badge: 'Clinical Tool',
+          },
+          {
+            title: 'Diet–Microbiome Interaction Mapping',
+            body: 'Correlating dietary fiber type (FOS, pectin, inulin) and protein source (hydrolyzed vs. intact) with microbiome community structure and metabolite output.',
+            badge: 'Research Focus',
+          },
+        ].map(({ title, body, badge }) => (
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+            <span class="tag mb-2">{badge}</span>
+            <h3 class="font-bold text-navy mb-2">{title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">{body}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Applications -->
+      <div class="bg-navy rounded-2xl p-8 text-white mb-12">
+        <h2 class="text-2xl font-bold mb-6">Clinical Applications</h2>
+        <ul class="space-y-3">
+          {[
+            'Species- and breed-specific probiotic strain selection for IBD management',
+            'Prebiotic substrate matching to individual microbiome composition (FOS vs. pectin vs. inulin)',
+            'Post-antibiotic microbiome restoration protocols',
+            'Diet reformulation to shift enterotype in metabolically compromised patients (CKD, hepatic disease)',
+            'Early dysbiosis detection in at-risk breeds before clinical signs emerge',
+          ].map((item) => (
+            <li class="flex items-start gap-3 text-sm text-navy-100">
+              <span class="text-forest-300 mt-0.5 flex-shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Nav to other areas -->
+      <div class="flex flex-wrap gap-4">
+        <a href="/research/metabolomics" class="btn-outline">Next: Metabolomics →</a>
+        <a href="/research/clinical-trials" class="btn-outline">Next: Clinical Trials →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

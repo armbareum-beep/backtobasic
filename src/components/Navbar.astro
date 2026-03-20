@@ -1,0 +1,121 @@
+---
+const navLinks = [
+  {
+    label: 'About',
+    href: '/about/professor',
+    children: [
+      { label: 'Professor', href: '/about/professor' },
+      { label: 'Philosophy', href: '/about/philosophy' },
+    ],
+  },
+  {
+    label: 'Research',
+    href: '/research',
+    children: [
+      { label: 'Precision Nutrition', href: '/research/precision-nutrition' },
+      { label: 'Metabolomics', href: '/research/metabolomics' },
+      { label: 'Clinical Trials', href: '/research/clinical-trials' },
+    ],
+  },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Collaboration', href: '/collaboration' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 shadow-sm">
+  <nav class="container-wide flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <div class="w-8 h-8 bg-navy rounded-lg flex items-center justify-center">
+        <span class="text-white font-bold text-sm">B²</span>
+      </div>
+      <div class="flex flex-col leading-none">
+        <span class="font-bold text-navy text-sm">Back to Basic</span>
+        <span class="text-forest text-[10px] font-medium tracking-wider uppercase">Vet Clinical Nutrition</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex items-center gap-1">
+      {navLinks.map((link) => (
+        <li class="relative group">
+          <a
+            href={link.href}
+            class:list={[
+              'px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150',
+              currentPath.startsWith(link.href) && link.href !== '/'
+                ? 'text-navy bg-navy-50'
+                : 'text-slate-600 hover:text-navy hover:bg-slate-50',
+            ]}
+          >
+            {link.label}
+            {link.children && (
+              <svg class="inline-block ml-1 w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            )}
+          </a>
+          {link.children && (
+            <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1">
+              {link.children.map((child) => (
+                <a
+                  href={child.href}
+                  class="block px-4 py-2 text-sm text-slate-600 hover:text-navy hover:bg-slate-50 transition-colors"
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2 rounded-lg text-slate-600 hover:text-navy hover:bg-slate-50"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
+    <div class="container-wide py-3 space-y-1">
+      {navLinks.map((link) => (
+        <div>
+          <a
+            href={link.href}
+            class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-navy hover:bg-slate-50"
+          >
+            {link.label}
+          </a>
+          {link.children && (
+            <div class="ml-4 space-y-1 mt-1">
+              {link.children.map((child) => (
+                <a
+                  href={child.href}
+                  class="block px-3 py-1.5 text-sm text-slate-500 hover:text-navy"
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

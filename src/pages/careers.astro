@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const tracks = [
+  {
+    icon: '🏥',
+    number: '01',
+    title: 'Clinical Specialists',
+    subtitle: 'Internal Medicine + Nutrition Integration',
+    color: 'border-forest',
+    description:
+      'Graduate with a dual lens: the diagnostic rigor of a veterinary internist and the nutritional depth of a clinical nutritionist. Our graduates serve as the nutrition-integrated specialists that modern specialty hospitals increasingly demand.',
+    highlights: [
+      'Clinical training at KNU VMTH (internal medicine + nutrition rounds)',
+      'Case-based learning: CKD, hepatic disease, oncology, IBD nutritional management',
+      'Pathway to board-certification in internal medicine or clinical nutrition (DACVIM / DACVN)',
+      'Network with attending clinicians at affiliated specialty hospitals',
+    ],
+    examples: ['University VMTH Resident', 'Specialty Hospital Internist', 'Nutrition Consultant'],
+    trend: 'Board-certified veterinary nutritionists (DACVN) number fewer than 120 globally — the gap represents an extraordinary career opportunity.',
+  },
+  {
+    icon: '🏭',
+    number: '02',
+    title: 'Industry Leaders',
+    subtitle: 'Global Pet Food R&D',
+    color: 'border-navy',
+    description:
+      'The global pet food industry is undergoing a scientifically driven transformation. Regulatory mandates in the US and EU are beginning to require qualified veterinary nutritionists in product development and medical nutrition lines.',
+    highlights: [
+      'Formulation science: nutrient profiling, ingredient selection, processing effects on bioavailability',
+      'Regulatory affairs: AAFCO, FEDIAF, MFDS nutritional adequacy statements',
+      'Clinical substantiation: designing and interpreting feeding trials for label claims',
+      'Business strategy: product development pipeline from R&D to market launch',
+    ],
+    examples: ['Hill\'s Pet Nutrition (R&D)', 'Royal Canin (Veterinary Affairs)', 'Purina Pro Plan (Nutrition Science)', 'Korean domestic premium brands'],
+    trend: 'Growing US/EU mandates to employ veterinary nutritionists are creating sustained demand across all tiers of the pet food industry.',
+  },
+  {
+    icon: '🔬',
+    number: '03',
+    title: 'Research Scientists',
+    subtitle: 'National Institutes & Corporate R&D',
+    color: 'border-slate-300',
+    description:
+      'For graduates who want to push the boundaries of what\'s known, careers in government research institutes and corporate R&D labs offer the infrastructure and resources to conduct high-impact, long-duration studies.',
+    highlights: [
+      'Competitive lab skills: NGS, LC-MS, metabolomics, bioinformatics (R/Python)',
+      'Grant writing and project management experience from ongoing lab research',
+      'Publication track record in peer-reviewed veterinary/nutrition journals',
+      'Collaboration network spanning academic, clinical, and industry sectors',
+    ],
+    examples: ['NIFS (National Institute of Food Science)', 'KFRI (Korea Food Research Institute)', 'Corporate R&D (biohealth, functional food, petfood tech)'],
+    trend: 'Biohealth and precision nutrition startups are emerging as fast-growing employers for veterinary science PhDs with analytical expertise.',
+  },
+];
+---
+
+<BaseLayout title="Careers" description="Career pathways for graduates — Clinical Specialists, Industry Leaders, Research Scientists">
+  <section class="bg-gradient-to-r from-navy to-navy-800 text-white py-16">
+    <div class="container-wide">
+      <div class="tag mb-3" style="background:rgba(255,255,255,0.1);color:#a7c4e2;">Careers & Alumni</div>
+      <h1 class="text-4xl font-bold mb-2">Where Our Graduates Go</h1>
+      <p class="text-navy-200 max-w-xl">
+        Three distinct pathways, one shared foundation: rigorous evidence-based training in veterinary clinical nutrition.
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="container-wide max-w-3xl text-center">
+      <p class="text-slate-600 text-lg leading-relaxed">
+        The veterinary nutrition landscape is changing fast. Whether you see yourself at a specialty clinic,
+        inside a global pet food company, or running your own research program — this lab prepares you with
+        the clinical depth, technical skills, and professional network to thrive.
+      </p>
+    </div>
+  </section>
+
+  <!-- Three tracks -->
+  <section class="section-padding">
+    <div class="container-wide space-y-10">
+      {tracks.map(({ icon, number, title, subtitle, color, description, highlights, examples, trend }) => (
+        <div class={`bg-white rounded-2xl border-2 ${color} p-8 grid grid-cols-1 lg:grid-cols-3 gap-8`}>
+          <!-- Left: header -->
+          <div class="lg:col-span-1">
+            <div class="text-5xl mb-4">{icon}</div>
+            <div class="text-xs font-bold text-slate-300 mb-1">{number}</div>
+            <h2 class="text-2xl font-bold text-navy mb-1">{title}</h2>
+            <p class="text-forest text-sm font-medium mb-4">{subtitle}</p>
+            <p class="text-slate-500 text-sm leading-relaxed">{description}</p>
+          </div>
+
+          <!-- Middle: highlights -->
+          <div class="lg:col-span-1">
+            <h3 class="font-semibold text-navy text-sm uppercase tracking-wide mb-3">What You'll Build</h3>
+            <ul class="space-y-2">
+              {highlights.map((item) => (
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <span class="text-forest mt-1 flex-shrink-0">›</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Right: examples + trend -->
+          <div class="lg:col-span-1">
+            <h3 class="font-semibold text-navy text-sm uppercase tracking-wide mb-3">Example Employers</h3>
+            <div class="flex flex-wrap gap-2 mb-6">
+              {examples.map((ex) => (
+                <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg">{ex}</span>
+              ))}
+            </div>
+            <div class="p-3 bg-forest-50 border border-forest-200 rounded-xl">
+              <p class="text-xs font-bold text-forest uppercase tracking-wide mb-1">Global Trend</p>
+              <p class="text-xs text-slate-600 leading-relaxed">{trend}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-navy text-white">
+    <div class="container-wide text-center max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4">Interested in Joining the Lab?</h2>
+      <p class="text-navy-200 mb-8">
+        We welcome motivated students and researchers at all levels. Reach out to discuss graduate program options,
+        lab rotations, or collaborative projects.
+      </p>
+      <a href="mailto:lab@knu.ac.kr" class="btn-primary bg-forest hover:bg-forest-600">
+        Contact the Lab
+      </a>
+    </div>
+  </section>
+</BaseLayout>
