@@ -3,22 +3,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const collaborators = [
   {
-    name: 'DACVN Specialist A',
-    affiliation: 'University of California, Davis — VMTH',
-    focus: 'Feline CKD nutritional management & renal diet formulation',
-    credential: 'DACVN',
+    name: 'Dr. Yeonjeong Hong (홍연정)',
+    affiliation: 'Western Animal Medical Center (웨스턴동물의료센터)',
+    focus: 'Clinical veterinary medicine & nutrition consultation',
+    credential: 'DVM',
   },
   {
-    name: 'DACVN Specialist B',
-    affiliation: 'Colorado State University — College of Veterinary Medicine',
-    focus: 'Canine oncology nutrition & cachexia intervention',
-    credential: 'DACVN',
+    name: 'Prof. Younghyun Jung (정영현)',
+    affiliation: 'Soonchunhyang University (순천향대학교)',
+    focus: 'Veterinary science research & education',
+    credential: 'Professor',
   },
   {
-    name: 'DECVCN Specialist',
-    affiliation: 'Royal Veterinary College, London',
-    focus: 'European small animal nutrition guidelines & microbiome research',
-    credential: 'DECVCN',
+    name: 'Dr. Wonkyung Yoon (윤원경)',
+    affiliation: 'Guardian Angel Animal Hospital (수호천사동물병원)',
+    focus: 'Clinical veterinary practice & nutrition-integrated care',
+    credential: 'DVM',
+  },
+  {
+    name: 'Prof. Hwayoung Yun (윤화영)',
+    affiliation: 'SHA Lab Bio & Seoul National University (샤랩바이오 & 서울대학교)',
+    focus: 'Biohealth research & veterinary science',
+    credential: 'Professor Emeritus',
+  },
+  {
+    name: 'Dr. Hyuntae Kim (김현태)',
+    affiliation: 'White Stone Veterinary Consulting',
+    focus: 'Veterinary consulting & clinical advisory',
+    credential: 'DVM',
+  },
+  {
+    name: 'Dr. Kijeong Choi (최기정)',
+    affiliation: 'Kibble.ai',
+    focus: 'AI-driven pet nutrition technology & innovation',
+    credential: 'DVM',
   },
 ];
 
@@ -111,30 +129,26 @@ const conferences = [
         </div>
       </div>
 
-      <!-- Photo gallery placeholder -->
+      <!-- Photo gallery -->
       <div>
         <div class="tag mb-3">Gallery</div>
         <h2 class="text-3xl font-bold text-navy mb-6">Lab in the World</h2>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
-            'ACVIM Forum 2024',
-            'Lab Exchange Visit',
-            'Joint Research Meeting',
-            'ESVCN Congress',
-            'KNU VMTH Clinical Rounds',
-            'Collaboration Workshop',
-            'Conference Poster Session',
-            'International Lab Visit',
-          ].map((label) => (
-            <div class="aspect-square bg-slate-100 rounded-xl flex items-center justify-center border border-slate-200 p-3 text-center">
-              <div>
-                <div class="text-2xl mb-2">📸</div>
-                <p class="text-xs text-slate-400">{label}</p>
-              </div>
+            { src: '/images/collab-01.jpg', label: 'Lab Activity' },
+            { src: '/images/collab-02.jpg', label: 'Collaboration' },
+            { src: '/images/collab-03.jpg', label: 'Conference' },
+            { src: '/images/collab-04.jpg', label: 'Research Meeting' },
+            { src: '/images/collab-05.jpg', label: 'Lab Exchange' },
+            { src: '/images/collab-06.jpg', label: 'Workshop' },
+            { src: '/images/collab-07.jpg', label: 'Poster Session' },
+            { src: '/images/collab-08.jpg', label: 'International Visit' },
+          ].map(({ src, label }) => (
+            <div class="aspect-square rounded-xl overflow-hidden border border-slate-200">
+              <img src={src} alt={label} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
             </div>
           ))}
         </div>
-        <p class="text-xs text-slate-400 mt-4 text-center">Photo gallery — images to be added by lab.</p>
       </div>
     </div>
   </section>
@@ -148,7 +162,7 @@ const conferences = [
         If you are a board-certified nutritionist or researcher working in related areas, we'd love to connect.
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="mailto:lab@knu.ac.kr" class="btn-primary bg-forest hover:bg-forest-600">
+        <a href="mailto:vetchae@knu.ac.kr" class="btn-primary bg-forest hover:bg-forest-600">
           Propose a Collaboration
         </a>
         <a href="/research" class="inline-flex items-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors">
