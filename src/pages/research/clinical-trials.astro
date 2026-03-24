@@ -3,45 +3,45 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const trials = [
   {
-    condition: 'Chronic Kidney Disease (CKD)',
+    condition: 'Chronic Kidney Disease (CKD) & Metabolic Balance',
     icon: '🫘',
     stage: 'Ongoing',
     color: 'border-forest-200 bg-forest-50',
     badgeColor: 'bg-forest-100 text-forest-700',
     objectives: [
-      'Evaluate phosphorus-restricted diet efficacy across IRIS CKD stages 2–4',
-      'Monitor SDMA, creatinine, and UPC ratio as nutritional response markers',
-      'Compare protein source (plant vs. animal) effects on uremic toxin load',
+      'Evaluate phosphorus-restricted diet efficacy across IRIS CKD stages 2–4 to reduce systemic uremic load.',
+      'Monitor SDMA, creatinine, and UPC ratio as biomarkers for holistic renal health and nutritional response.',
+      'Compare protein source (plant vs. animal) effects on uremic toxin modulation and gut-kidney axis health.',
     ],
   },
   {
-    condition: 'Oncology & Cancer Cachexia',
+    condition: 'Oncology & Cancer Cachexia: Supportive Integrative Care',
     icon: '🎗️',
     stage: 'Ongoing',
     color: 'border-navy-200 bg-navy-50',
     badgeColor: 'bg-navy-100 text-navy-700',
     objectives: [
-      'Assess muscle mass preservation (MCS) under high-fat, moderate-protein diets in tumor-bearing dogs',
-      'Evaluate omega-3 fatty acid (EPA/DHA) supplementation on inflammatory cytokine profiles',
-      'Develop cachexia grading and nutritional intervention criteria for veterinary oncology',
+      'Assess muscle mass preservation (MCS) and metabolic stability in tumor-bearing dogs through precision nutrition.',
+      'Evaluate the role of omega-3 fatty acids (EPA/DHA) in modulating inflammatory cytokine profiles and improving quality of life.',
+      'Develop comprehensive cachexia grading and multimodal nutritional intervention criteria for veterinary oncology.',
     ],
   },
   {
-    condition: 'Food Allergy & Adverse Food Reactions',
+    condition: 'Food Allergy & Gut Health Restoration',
     icon: '🌾',
     stage: 'Enrolling',
     color: 'border-yellow-200 bg-yellow-50',
     badgeColor: 'bg-yellow-100 text-yellow-700',
     objectives: [
-      'Conduct prospective elimination diet trials with novel and hydrolyzed protein sources',
-      'Track gut microbiome shifts during dietary elimination and rechallenge phases',
-      'Establish breed-specific antigen sensitivity profiles using serum IgE panels',
+      'Conduct prospective elimination diet trials focusing on immune system stabilization through novel and hydrolyzed proteins.',
+      'Track gut microbiome shifts and mucosal barrier integrity during dietary elimination and rechallenge phases.',
+      'Establish breed-specific antigen sensitivity profiles to provide personalized, allergen-free lifestyle recommendations.',
     ],
   },
 ];
 ---
 
-<BaseLayout title="Clinical Trials" description="VMTH clinical nutrition trials for CKD, oncology, and allergy — Back to Basic Lab">
+<BaseLayout title="Integrative Medicine" description="Integrative veterinary medicine — clinical nutrition, disease management, and evidence-based care at Back to Basic Lab">
   <section class="bg-gradient-to-r from-navy to-navy-800 text-white py-16">
     <div class="container-wide">
       <a href="/research" class="text-navy-300 text-sm hover:text-white mb-4 inline-flex items-center gap-1">
@@ -49,8 +49,8 @@ const trials = [
         Research
       </a>
       <div class="tag mb-3" style="background:rgba(255,255,255,0.1);color:#a7c4e2;">VMTH · CKD · Oncology · Allergy</div>
-      <h1 class="text-4xl font-bold mb-2">Clinical Trials</h1>
-      <p class="text-navy-200">Evidence-based nutrition protocols developed at the KNU Veterinary Medical Teaching Hospital</p>
+      <h1 class="text-4xl font-bold mb-2">Integrative Medicine</h1>
+      <p class="text-navy-200">An integrative approach to veterinary patient care at the KNU Veterinary Medical Teaching Hospital</p>
     </div>
   </section>
 
@@ -58,22 +58,22 @@ const trials = [
     <div class="container-wide max-w-4xl">
       <div class="prose max-w-none mb-12">
         <div class="tag mb-4">Overview</div>
-        <h2 class="text-2xl font-bold text-navy mb-4">From Bench to Bedside</h2>
+        <h2 class="text-2xl font-bold text-navy mb-4">An Integrative Approach to Veterinary Patient Care</h2>
         <p class="text-slate-600 leading-relaxed mb-4">
-          Our clinical trials program operates at the intersection of molecular research and real-world veterinary
-          practice. Conducted at the KNU Veterinary Medical Teaching Hospital (VMTH), each trial is designed to
-          generate practice-changing evidence for the management of chronic diseases where nutrition plays a
-          central therapeutic role.
+          Our clinical trials program operates at the intersection of conventional veterinary medicine and evidence-based
+          clinical nutrition. At the KNU Veterinary Medical Teaching Hospital (VMTH), we advocate for an integrative
+          management strategy that views the patient as a whole.
         </p>
         <p class="text-slate-600 leading-relaxed">
-          All trials integrate BCS/MCS monitoring, standardized dietary assessment, and biomarker tracking —
-          ensuring that nutritional interventions are evaluated with the same rigor applied to pharmacological treatments.
+          By combining cutting-edge molecular diagnostics with a "Back to the Basics" philosophy, we move beyond simple
+          symptom management. We focus on restoring systemic balance through personalized nutritional therapy, ensuring that
+          dietary interventions are evaluated with the same clinical rigor as pharmacological treatments.
         </p>
       </div>
 
       <!-- Active trials -->
       <div class="space-y-6 mb-12">
-        <h2 class="text-2xl font-bold text-navy">Active Research Trials</h2>
+        <h2 class="text-2xl font-bold text-navy">Active Research Trials: Integrative Disease Management</h2>
         {trials.map(({ condition, icon, stage, color, badgeColor, objectives }) => (
           <div class={`rounded-2xl border-2 p-6 ${color}`}>
             <div class="flex items-start justify-between gap-4 mb-4">
@@ -97,16 +97,16 @@ const trials = [
 
       <!-- Guidelines output -->
       <div class="bg-navy text-white rounded-2xl p-8 mb-12">
-        <h2 class="text-2xl font-bold mb-4">Clinical Guideline Development</h2>
+        <h2 class="text-2xl font-bold mb-4">Integrative Clinical Guideline Development</h2>
         <p class="text-navy-200 text-sm leading-relaxed mb-6">
-          Findings from our trials are synthesized into evidence-based clinical nutrition guidelines,
-          providing veterinary practitioners with actionable, species-specific recommendations.
+          Findings from our trials are synthesized into evidence-based guidelines that empower veterinary
+          practitioners to implement integrative, species-specific care.
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
-            { icon: '📋', label: 'CKD Nutrition Guidelines', status: 'In preparation' },
-            { icon: '🎗️', label: 'Oncology Nutrition Protocol', status: 'In preparation' },
-            { icon: '🌾', label: 'Food Allergy Elimination Guide', status: 'Coming soon' },
+            { icon: '📋', label: 'Integrative CKD Nutrition Guidelines', status: 'In preparation' },
+            { icon: '🎗️', label: 'Oncology Supportive Care Protocol', status: 'In preparation' },
+            { icon: '🌾', label: 'Holistic Food Allergy Elimination Guide', status: 'Coming soon' },
           ].map(({ icon, label, status }) => (
             <div class="bg-white/10 rounded-xl p-4 text-center">
               <div class="text-2xl mb-2">{icon}</div>

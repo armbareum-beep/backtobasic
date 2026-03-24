@@ -1,149 +1,86 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const collaborators = [
+const members = [
   {
-    name: 'Dr. Yeonjeong Hong (홍연정)',
-    affiliation: 'Western Animal Medical Center (웨스턴동물의료센터)',
-    focus: 'Clinical veterinary medicine & nutrition consultation',
-    credential: 'DVM',
+    category: 'Professor',
+    people: [
+      { name: 'Hyung-Kyu Chae (채형규)', role: 'Lab Director', photo: '/images/members/chae-hyungkyu.jpg' },
+    ],
   },
   {
-    name: 'Prof. Younghyun Jung (정영현)',
-    affiliation: 'Soonchunhyang University (순천향대학교)',
-    focus: 'Veterinary science research & education',
-    credential: 'Professor',
+    category: 'Ph.D. Student',
+    people: [
+      { name: 'Changtae Kim (김창태)', role: 'Ph.D. Candidate', photo: '/images/members/kim-changtae.jpg' },
+    ],
   },
   {
-    name: 'Dr. Wonkyung Yoon (윤원경)',
-    affiliation: 'Guardian Angel Animal Hospital (수호천사동물병원)',
-    focus: 'Clinical veterinary practice & nutrition-integrated care',
-    credential: 'DVM',
-  },
-  {
-    name: 'Prof. Hwayoung Yun (윤화영)',
-    affiliation: 'SHA Lab Bio & Seoul National University (샤랩바이오 & 서울대학교)',
-    focus: 'Biohealth research & veterinary science',
-    credential: 'Professor Emeritus',
-  },
-  {
-    name: 'Dr. Hyuntae Kim (김현태)',
-    affiliation: 'White Stone Veterinary Consulting',
-    focus: 'Veterinary consulting & clinical advisory',
-    credential: 'DVM',
-  },
-  {
-    name: 'Dr. Kijeong Choi (최기정)',
-    affiliation: 'Kibble.ai',
-    focus: 'AI-driven pet nutrition technology & innovation',
-    credential: 'DVM',
+    category: 'M.S. Students',
+    people: [
+      { name: 'Minji Kim (김민지)', role: 'M.S. Student', photo: '/images/members/kim-minji.jpg' },
+      { name: 'Jeonghyeon Kwon (권정현)', role: 'M.S. Student', photo: '/images/members/kwon-jeonghyeon.jpg' },
+      { name: 'Byeongwoon Kang (강병운)', role: 'M.S. Student', photo: '/images/members/kang-byeongwoon.png' },
+      { name: 'Somi Jang (장솜이)', role: 'M.S. Student', photo: '/images/members/jang-somi.jpg' },
+      { name: 'Woocheol Lee (이우철)', role: 'M.S. Student', photo: '/images/members/lee-woocheol.jpg' },
+    ],
   },
 ];
 
-const conferences = [
-  {
-    name: 'ACVIM Forum',
-    full: 'American College of Veterinary Internal Medicine',
-    focus: 'Nutrition symposia, clinical nutrition abstract presentations',
-    icon: '🇺🇸',
-  },
-  {
-    name: 'ESVCN Congress',
-    full: 'European Society of Veterinary Clinical Nutrition',
-    focus: 'Metabolomics workshops, microbiome sessions, European guidelines',
-    icon: '🇪🇺',
-  },
-  {
-    name: 'WSAVA Nutrition Committee',
-    full: 'World Small Animal Veterinary Association',
-    focus: 'Global nutritional assessment guidelines (BCS/MCS standardization)',
-    icon: '🌐',
-  },
-  {
-    name: 'KSVS / KSAVM',
-    full: 'Korean Society of Veterinary Science / Internal Medicine',
-    focus: 'Domestic clinical nutrition guideline development, annual symposia',
-    icon: '🇰🇷',
-  },
+const photos = [
+  { src: '/images/collab-01.jpg', label: 'Lab Activity' },
+  { src: '/images/collab-02.jpg', label: 'Collaboration' },
+  { src: '/images/collab-03.jpg', label: 'Conference' },
+  { src: '/images/collab-04.jpg', label: 'Research Meeting' },
+  { src: '/images/collab-05.jpg', label: 'Lab Exchange' },
+  { src: '/images/collab-06.jpg', label: 'Workshop' },
+  { src: '/images/collab-07.jpg', label: 'Poster Session' },
+  { src: '/images/collab-08.jpg', label: 'International Visit' },
 ];
 ---
 
-<BaseLayout title="Global Collaboration" description="International network — DACVN collaborators, ACVIM, ESVCN, WSAVA">
+<BaseLayout title="Members" description="Lab members — Veterinary Clinical Nutrition Laboratory, KNU">
   <section class="bg-gradient-to-r from-navy to-navy-800 text-white py-16">
     <div class="container-wide">
-      <div class="tag mb-3" style="background:rgba(255,255,255,0.1);color:#a7c4e2;">Global Collaboration</div>
-      <h1 class="text-4xl font-bold mb-2">International Network</h1>
+      <div class="tag mb-3" style="background:rgba(255,255,255,0.1);color:#a7c4e2;">Our Team</div>
+      <h1 class="text-4xl font-bold mb-2">Lab Members</h1>
       <p class="text-navy-200 max-w-xl">
-        Partnerships with board-certified nutritionists and institutions across the US, Europe, and beyond.
+        Meet the researchers behind the Veterinary Clinical Nutrition Laboratory at KNU.
       </p>
     </div>
   </section>
 
-  <!-- Intro -->
-  <section class="py-12 bg-slate-50 border-b border-slate-200">
-    <div class="container-wide max-w-3xl text-center">
-      <p class="text-slate-600 text-lg leading-relaxed">
-        Veterinary clinical nutrition is a small, tightly connected global field. Our lab maintains active
-        collaborations with DACVN- and DECVCN-certified specialists, enabling joint research, co-authored publications,
-        and exchange of students for clinical and laboratory training.
-      </p>
-    </div>
-  </section>
-
-  <!-- Collaborators -->
+  <!-- Members -->
   <section class="section-padding">
     <div class="container-wide">
-      <div class="mb-10">
-        <div class="tag mb-3">Research Collaborators</div>
-        <h2 class="text-3xl font-bold text-navy">Board-Certified Collaborating Specialists</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        {collaborators.map(({ name, affiliation, focus, credential }) => (
-          <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:border-navy hover:shadow-md transition-all">
-            <div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center mb-4">
-              <span class="text-2xl">👤</span>
-            </div>
-            <span class="tag mb-2">{credential}</span>
-            <h3 class="font-bold text-navy mb-1">{name}</h3>
-            <p class="text-xs text-slate-400 mb-3">{affiliation}</p>
-            <p class="text-sm text-slate-500 leading-relaxed">{focus}</p>
-          </div>
-        ))}
-      </div>
-
-      <!-- Conferences -->
-      <div class="mb-10">
-        <div class="tag mb-3">Conference Presence</div>
-        <h2 class="text-3xl font-bold text-navy mb-6">Where We Present & Connect</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {conferences.map(({ name, full, focus, icon }) => (
-            <div class="flex gap-4 p-5 bg-slate-50 border border-slate-200 rounded-xl">
-              <span class="text-3xl flex-shrink-0">{icon}</span>
-              <div>
-                <h3 class="font-bold text-navy">{name}</h3>
-                <p class="text-xs text-slate-400 mb-2">{full}</p>
-                <p class="text-sm text-slate-500">{focus}</p>
+      {members.map(({ category, people }) => (
+        <div class="mb-12">
+          <div class="tag mb-4">{category}</div>
+          <div class={`grid gap-6 ${people.length === 1 ? 'grid-cols-1 max-w-sm' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'}`}>
+            {people.map(({ name, role, photo }) => (
+              <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:border-navy hover:shadow-md transition-all text-center">
+                <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-slate-100 flex items-center justify-center">
+                  {photo ? (
+                    <img src={photo} alt={name} class="w-full h-full object-cover" />
+                  ) : (
+                    <svg class="w-10 h-10 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
+                  )}
+                </div>
+                <h3 class="font-bold text-navy mb-1">{name}</h3>
+                <p class="text-sm text-slate-400">{role}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
 
       <!-- Photo gallery -->
-      <div>
+      <div class="mt-16">
         <div class="tag mb-3">Gallery</div>
-        <h2 class="text-3xl font-bold text-navy mb-6">Lab in the World</h2>
+        <h2 class="text-3xl font-bold text-navy mb-6">Lab Life</h2>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {[
-            { src: '/images/collab-01.jpg', label: 'Lab Activity' },
-            { src: '/images/collab-02.jpg', label: 'Collaboration' },
-            { src: '/images/collab-03.jpg', label: 'Conference' },
-            { src: '/images/collab-04.jpg', label: 'Research Meeting' },
-            { src: '/images/collab-05.jpg', label: 'Lab Exchange' },
-            { src: '/images/collab-06.jpg', label: 'Workshop' },
-            { src: '/images/collab-07.jpg', label: 'Poster Session' },
-            { src: '/images/collab-08.jpg', label: 'International Visit' },
-          ].map(({ src, label }) => (
+          {photos.map(({ src, label }) => (
             <div class="aspect-square rounded-xl overflow-hidden border border-slate-200">
               <img src={src} alt={label} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
             </div>
@@ -153,20 +90,19 @@ const conferences = [
     </div>
   </section>
 
-  <!-- Collaborate with us CTA -->
+  <!-- Join us CTA -->
   <section class="section-padding bg-navy text-white">
     <div class="container-wide text-center max-w-2xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4">Collaborate with Us</h2>
+      <h2 class="text-3xl font-bold mb-4">Join Our Lab</h2>
       <p class="text-navy-200 mb-8">
-        We welcome proposals for joint research, student exchanges, and co-authorship opportunities.
-        If you are a board-certified nutritionist or researcher working in related areas, we'd love to connect.
+        We welcome motivated students and researchers who share our passion for evidence-based veterinary clinical nutrition.
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
         <a href="mailto:vetchae@knu.ac.kr" class="btn-primary bg-forest hover:bg-forest-600">
-          Propose a Collaboration
+          Contact Us
         </a>
-        <a href="/research" class="inline-flex items-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors">
-          See Our Research
+        <a href="/careers" class="inline-flex items-center gap-2 border border-white/30 text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors">
+          Career Pathways
         </a>
       </div>
     </div>
