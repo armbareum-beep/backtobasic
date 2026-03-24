@@ -55,8 +55,8 @@ const publications = [
           <!-- Quick facts -->
           <div class="space-y-3">
             {[
-              { icon: '🎓', label: 'PhD', value: 'Seoul National University (SNU)' },
-              { icon: '🏥', label: 'Clinical Experience', value: '13 years (Internal Medicine)' },
+              { icon: '🎓', label: 'Ph.D. / M.S.', value: 'Seoul National University (SNU)' },
+              { icon: '🎓', label: 'B.S.', value: 'Kyungpook National University (KNU)' },
               { icon: '🏛️', label: 'Current Position', value: 'Professor, KNU College of Veterinary Medicine' },
               { icon: '🔬', label: 'Specialty', value: 'Veterinary Clinical Nutrition & Internal Medicine' },
             ].map(({ icon, label, value }) => (
@@ -119,15 +119,21 @@ const publications = [
                   highlight: true,
                 },
                 {
-                  period: '~13 years',
-                  role: 'Clinical Veterinarian — Internal Medicine',
-                  org: 'Veterinary Medical Teaching Hospital (VMTH)',
+                  period: 'Ph.D.',
+                  role: 'Doctor of Philosophy in Veterinary Medicine',
+                  org: 'Seoul National University (SNU)',
                   highlight: false,
                 },
                 {
-                  period: 'PhD',
-                  role: 'Doctor of Philosophy in Veterinary Medicine',
+                  period: 'M.S.',
+                  role: 'Master of Science in Veterinary Medicine',
                   org: 'Seoul National University (SNU)',
+                  highlight: false,
+                },
+                {
+                  period: 'B.S.',
+                  role: 'Bachelor of Veterinary Medicine',
+                  org: 'Kyungpook National University (KNU)',
                   highlight: false,
                 },
               ].map(({ period, role, org, highlight }) => (
